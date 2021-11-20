@@ -1,6 +1,6 @@
 <template>
-  <div class="header" @click="$emit('showPopup', true)">
-    <span class="title">Мероприятия</span>
+  <div class="header">
+    <span @click="$emit('showPopup', true)" class="title">Мероприятия</span>
   </div>
 </template>
 
