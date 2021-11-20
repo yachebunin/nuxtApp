@@ -1,7 +1,16 @@
 <template>
   <div class="app">
-    <Header class="header" @showPopup="showPopup" />
-    <Sidebar v-if="isMob" class="sidebar" />
+    <Header
+      class="header"
+      @showPopup="showPopupHandler"
+      @showSidebar="showSidebarHandler"
+      :appSize="appSize"
+    />
+    <Sidebar
+      @showSidebar="showSidebarHandler"
+      v-if="appSize !== 1 || isShowSidebar"
+      class="sidebar"
+    />
     <div class="content">
       <Nuxt />
     </div>
@@ -14,24 +23,31 @@ export default {
   data() {
     return {
       isShow: false,
-      width: 0,
+      isShowSidebar: false,
+      appSize: 3,
     };
   },
-  created() {
-    window.addEventListener("resize", this.updateWidth);
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.updateWidth);
+  mounted() {
+    this.winWidth();
   },
   methods: {
-    isMob() {
-      return this.width > 700;
+    showSidebarHandler(show) {
+      this.isShowSidebar = show;
     },
-    showPopup(show) {
+    winWidth: function () {
+      setInterval(() => {
+        let w = window.innerWidth;
+        if (w < 768) {
+          this.appSize = 1;
+        } else if (w < 960) {
+          this.appSize = 2;
+        } else {
+          this.appSize = 3;
+        }
+      }, 100); // для примера
+    },
+    showPopupHandler(show) {
       this.isShow = show;
-    },
-    updateWidth() {
-      this.width = window.innerWidth;
     },
   },
 };
@@ -66,5 +82,17 @@ body {
 
 .content {
   grid-area: content;
+}
+</style>
+
+<style scoped>
+@media all and (max-width: 768px) {
+  .app {
+    grid-template-columns: auto;
+    grid-template-rows: 40px auto;
+    grid-template-areas:
+      "header"
+      "content";
+  }
 }
 </style>

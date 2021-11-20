@@ -5,6 +5,9 @@
       :element="element"
       :key="element.title"
     />
+    <div class="close" @click="$emit('showSidebar', false)">
+      close
+    </div>
   </div>
 </template>
 
@@ -69,5 +72,28 @@ export default {
   padding-left: 10px;
   color: #fff;
   background: #192233;
+}
+</style>
+
+<style scoped>
+@media all and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: 0px;
+    min-height: 100%;
+    padding: 50px 20px 20px;
+    background: #192233;
+    z-index: 100;
+  }
+
+  .close {
+    position: absolute;
+    left: 250px;
+    top: 50px;
+  }
+
+  .close:hover {
+    cursor: pointer;
+  }
 }
 </style>

@@ -540,3 +540,12 @@ export default {
   margin-left: 102px;
 }
 </style>
+
+<style scoped>
+@media all and (max-width: 768px) {
+  .cards {
+    justify-content: space-between;
+    margin-left: 0px;
+  }
+}
+</style>

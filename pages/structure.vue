@@ -31,3 +31,12 @@ export default {
   font-size: 40px;
 }
 </style>
+
+<style scoped>
+@media all and (max-width: 768px) {
+  .title {
+    margin: 0px 0px 50px 16px;
+    font-size: 25px;
+  }
+}
+</style>
