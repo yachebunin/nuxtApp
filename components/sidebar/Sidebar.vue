@@ -1,0 +1,73 @@
+<template>
+  <div class="sidebar">
+    <MenuElement
+      v-for="element in menuElements"
+      :element="element"
+      :key="element.title"
+    />
+  </div>
+</template>
+
+<script>
+import MenuElement from "./MenuElement.vue";
+
+export default {
+  data() {
+    return {
+      menuElements: [
+        {
+          title: "Дашборд",
+          icon: require("../../assets/sidebar/home.svg"),
+          path: "/",
+        },
+        {
+          title: "Биржа активности",
+          icon: require("../../assets/sidebar/discuss.svg"),
+          path: "/",
+        },
+        {
+          title: "Биржа блогеров",
+          icon: require("../../assets/sidebar/group.svg"),
+          path: "/",
+        },
+        {
+          title: "Взаимопиар",
+          icon: require("../../assets/sidebar/pr.svg"),
+          path: "/pr",
+        },
+        {
+          title: "Моя структура",
+          icon: require("../../assets/sidebar/structure.svg"),
+          path: "/structure",
+        },
+        {
+          title: "Магазин",
+          icon: require("../../assets/sidebar/store.svg"),
+          path: "/",
+        },
+        {
+          title: "Марафон",
+          icon: require("../../assets/sidebar/marathon.svg"),
+          path: "/",
+        },
+        {
+          title: "Лендинги",
+          icon: require("../../assets/sidebar/landings.svg"),
+          path: "/",
+        },
+      ],
+    };
+  },
+  components: {
+    MenuElement,
+  },
+};
+</script>
+
+<style scoped>
+.sidebar {
+  padding-left: 10px;
+  color: #fff;
+  background: #192233;
+}
+</style>
