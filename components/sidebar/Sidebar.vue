@@ -81,6 +81,7 @@ export default {
     position: fixed;
     left: 0px;
     min-height: 100%;
+    min-width: 210px;
     padding: 50px 20px 20px;
     background: #192233;
     z-index: 100;
@@ -88,7 +89,7 @@ export default {
 
   .close {
     position: absolute;
-    left: 250px;
+    left: 260px;
     top: 50px;
   }
 
