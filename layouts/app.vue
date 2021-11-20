@@ -15,7 +15,7 @@
     <div class="content">
       <Nuxt />
     </div>
-    <Popup @showPopup="showPopup" v-if="isShow" />
+    <Popup @showPopup="showPopupHandler" v-if="isShow" />
   </div>
 </template>
 
