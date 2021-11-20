@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Header class="header" @showPopup="showPopup" />
-    <Sidebar class="sidebar" />
+    <Sidebar v-if="isMob" class="sidebar" />
     <div class="content">
       <Nuxt />
     </div>
@@ -14,11 +14,24 @@ export default {
   data() {
     return {
       isShow: false,
+      width: 0,
     };
   },
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.updateWidth);
+  },
   methods: {
+    isMob() {
+      return this.width > 700;
+    },
     showPopup(show) {
       this.isShow = show;
+    },
+    updateWidth() {
+      this.width = window.innerWidth;
     },
   },
 };

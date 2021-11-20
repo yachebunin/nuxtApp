@@ -14,7 +14,7 @@
     <div class="profiles">
       <Profile
         v-for="profile in card.profiles"
-        :key="profile.name"
+        :key="profile.id"
         :profile="profile"
       />
     </div>
