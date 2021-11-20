@@ -1,5 +1,7 @@
 <template>
-  <div class="header">Мероприятия</div>
+  <div class="header" @click="$emit('showPopup', true)">
+    <span class="title">Мероприятия</span>
+  </div>
 </template>
 
 <style scoped>
@@ -9,5 +11,9 @@
   padding-left: 290px;
   color: #fff;
   background: #192233;
+}
+
+.title:hover {
+  cursor: pointer;
 }
 </style>

@@ -1,12 +1,28 @@
 <template>
   <div class="app">
-    <Header class="header" />
+    <Header class="header" @showPopup="showPopup" />
     <Sidebar class="sidebar" />
     <div class="content">
       <Nuxt />
     </div>
+    <Popup @showPopup="showPopup" v-if="isShow" />
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isShow: false,
+    };
+  },
+  methods: {
+    showPopup(show) {
+      this.isShow = show;
+    },
+  },
+};
+</script>
 
 <style>
 body {
