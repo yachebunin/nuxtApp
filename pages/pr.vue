@@ -23,5 +23,6 @@ export default {
   margin: 0px 0px 147px 16px;
   font-weight: 700;
   font-size: 40px;
+  font-family: Roboto;
 }
 </style>
