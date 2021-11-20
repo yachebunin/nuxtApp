@@ -10,6 +10,7 @@
       @showSidebar="showSidebarHandler"
       v-if="appSize !== 1 || isShowSidebar"
       class="sidebar"
+      :isShowSidebar="isShowSidebar"
     />
     <div class="content">
       <Nuxt />
@@ -63,13 +64,14 @@ body {
 <style scoped>
 .app {
   display: grid;
-  grid-template-columns: 224px auto;
+  grid-template-columns: 240px auto;
   grid-template-rows: 80px auto;
   grid-template-areas:
     "header header"
     "sidebar content";
   min-height: 100vh;
   background: #192233;
+  font-family: 'PT Root UI';
 }
 
 .header {

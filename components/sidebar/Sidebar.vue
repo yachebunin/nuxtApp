@@ -5,7 +5,7 @@
       :element="element"
       :key="element.title"
     />
-    <div class="close" @click="$emit('showSidebar', false)">
+    <div v-if="isShowSidebar" class="close" @click="$emit('showSidebar', false)">
       close
     </div>
   </div>
@@ -61,6 +61,7 @@ export default {
       ],
     };
   },
+  props: ['isShowSidebar'],
   components: {
     MenuElement,
   },

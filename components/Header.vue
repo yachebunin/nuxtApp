@@ -20,6 +20,7 @@ export default {
   padding-left: 290px;
   color: #fff;
   background: #192233;
+  font-family: Roboto;
 }
 
 .title:hover {
